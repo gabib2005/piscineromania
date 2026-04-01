@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/GabiB/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/4e0afd3d-bb24-45b9-8c2a-f978b9173e2c/8b55ead6-bac7-4bc6-905d-eacfb7674668/skills/docx/**)",
+      "Bash(pandoc --track-changes=all \"C:\\\\laragon\\\\www\\\\piscineromania\\\\Documente\\\\Specificatie_Tehnica_PiscineRomania.docx\" -o output.md)",
+      "Bash(pip install:*)",
+      "Bash(python scripts/office/unpack.py \"C:\\\\laragon\\\\www\\\\piscineromania\\\\Documente\\\\Specificatie_Tehnica_PiscineRomania.docx\" unpacked/)",
+      "Bash(cmd.exe /c \"composer require laravel/breeze laravel/socialite laravel/cashier maatwebsite/excel intervention/image spatie/laravel-permission spatie/laravel-sluggable barryvdh/laravel-dompdf guzzlehttp/guzzle --no-interaction\")",
+      "Bash(find '/c/laragon/www/piscineromania/Documente/Poze produse' -name *.png -exec cp {} /c/laragon/www/piscineromania/public/images/products/)",
+      "Bash(2)",
+      "Bash(/dev/null echo:*)"
+    ]
+  }
+}
