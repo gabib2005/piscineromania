@@ -1,0 +1,34 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: FTP Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.piscineromania.ro
+          port: 21
+          username: Gabib@piscineromania.ro
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /shop_test398153.ro/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            .github/**
+            public/design-preview/**
+
+      - name: Clear Laravel Cache
+        run: |
+          curl -s https://shop.piscineromania.ro/clearcache.php || true
