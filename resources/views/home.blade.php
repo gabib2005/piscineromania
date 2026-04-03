@@ -65,27 +65,117 @@
 
     @php
     $catIcons = [
-        'piscine'              => '<path d="M2 12s3-4 10-4 10 4 10 4-3 4-10 4-10-4-10-4z"/><circle cx="12" cy="12" r="2"/>',
-        'pompe-recirculare'    => '<circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>',
-        'filtre-filtrare'      => '<path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/>',
-        'chimicale-piscine'    => '<path d="M9 3h6M10 3v5l-4 6a4 4 0 008 0l-4-6V3"/>',
-        'electroliza-ph'       => '<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>',
-        'pompe-de-caldura'     => '<path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/>',
-        'incalzire-apa'        => '<path d="M12 2c0 6-4 8-4 13a4 4 0 008 0c0-5-4-7-4-13z"/><path d="M8 22h8"/>',
-        'iluminat-piscine'     => '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>',
-        'skimmere-prize'       => '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/>',
-        'conducte-fitinguri'   => '<path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"/>',
-        'acoperitori-folii'    => '<path d="M2 20h20M4 20V8l8-6 8 6v12"/><path d="M9 20v-8h6v8"/>',
-        'constructie-piscine'  => '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>',
-        'saune-spa'            => '<path d="M12 22V12M8 22V15M16 22V15M4 6c0-1.1.9-2 2-2h12a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6z"/>',
-        'accesorii-piscine'    => '<path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>',
-        'pompe-submersibile'   => '<path d="M12 2v14M5 9l7 7 7-7"/><path d="M5 19h14"/>',
-        'automatizare'         => '<circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>',
-        'scalatoare'           => '<path d="M2 20h20M6 20V4M10 20v-8M14 20v-4M18 20v-2"/>',
-        'curatare-piscine'     => '<path d="M3 12h18M9 12V6a3 3 0 016 0v6M5 20a7 7 0 0014 0"/>',
-        'piese-de-schimb'      => '<path d="M11 4a7 7 0 107 7M11 4v7l4 2"/>',
+
+        // 🏊 Piscine — valuri de apă + scară
+        'piscine' =>
+            '<path d="M2 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/>'.
+            '<path d="M2 19c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/>'.
+            '<path d="M8 15V8a4 4 0 018 0v7"/>',
+
+        // ⚙️ Pompe recirculare — săgeți circulare (RotateCw)
+        'pompe-recirculare' =>
+            '<path d="M21 12a9 9 0 11-9-9"/>'.
+            '<polyline points="21 3 21 12 12 12"/>',
+
+        // 🔧 Filtre si filtrare — pâlnie filtru
+        'filtre-si-filtrare' =>
+            '<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>',
+
+        // 🧪 Chimicale si tratamente — eprubetă/flacon
+        'chimicale-si-tratamente' =>
+            '<line x1="9" y1="3" x2="15" y2="3"/>'.
+            '<path d="M10 3v5.5L6 15a3 3 0 002.68 4h6.64A3 3 0 0018 15l-4-6.5V3"/>',
+
+        // 🌡️ Incalzire apa — termometru
+        'incalzire-apa' =>
+            '<path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/>',
+
+        // 💡 Iluminat si accesorii — bec
+        'iluminat-si-accesorii' =>
+            '<line x1="9" y1="18" x2="15" y2="18"/>'.
+            '<line x1="10" y1="22" x2="14" y2="22"/>'.
+            '<path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14z"/>',
+
+        // 🪜 Scari si platforme — scară
+        'scari-si-platforme' =>
+            '<line x1="8" y1="2" x2="8" y2="22"/>'.
+            '<line x1="16" y1="2" x2="16" y2="22"/>'.
+            '<line x1="8" y1="7" x2="16" y2="7"/>'.
+            '<line x1="8" y1="12" x2="16" y2="12"/>'.
+            '<line x1="8" y1="17" x2="16" y2="17"/>',
+
+        // 🧹 Curatare si aspiratoare — perie + scânteie curățenie
+        'curatare-si-aspiratoare' =>
+            '<path d="M3 15h12a3 3 0 010 6H3v-6z"/>'.
+            '<line x1="15" y1="18" x2="21" y2="18"/>'.
+            '<line x1="19" y1="12" x2="21" y2="10"/>'.
+            '<line x1="17" y1="10" x2="19" y2="8"/>',
+
+        // 🛡️ Folie si etansare — scut cu bifă (sigiliu)
+        'folie-si-etansare' =>
+            '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'.
+            '<polyline points="9 12 11 14 15 10"/>',
+
+        // 🤖 Automatizare si control — cip electronic
+        'automatizare-si-control' =>
+            '<rect x="9" y="9" width="6" height="6" rx="1"/>'.
+            '<path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2"/>',
+
+        // 🧖 Saune si spa — aburi + cabină
+        'saune-si-spa' =>
+            '<path d="M8 6c0 2.5 2 3.5 2 6M12 4c0 3 2 4.5 2 7M16 6c0 2.5 2 3.5 2 6"/>'.
+            '<rect x="3" y="15" width="18" height="7" rx="2"/>',
+
+        // 🔗 Furtunuri si racorduri — conector conductă
+        'furtunuri-si-racorduri' =>
+            '<path d="M4 9h4v6H4a2 2 0 010-6z"/>'.
+            '<path d="M20 9h-4v6h4a2 2 0 000-6z"/>'.
+            '<rect x="8" y="7" width="8" height="10" rx="2"/>',
+
+        // 💧 Pompe submersibile — săgeată jos în apă
+        'pompe-submersibile' =>
+            '<line x1="12" y1="2" x2="12" y2="14"/>'.
+            '<polyline points="8 10 12 14 16 10"/>'.
+            '<rect x="4" y="17" width="16" height="5" rx="2"/>',
+
+        // 🫧 Hidromasaj si jacuzzi — bule de aer în apă
+        'hidromasaj-si-jacuzzi' =>
+            '<circle cx="7" cy="12" r="2"/>'.
+            '<circle cx="13" cy="8" r="2"/>'.
+            '<circle cx="18" cy="13" r="2"/>'.
+            '<path d="M2 20c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/>',
+
+        // ♨️ Pompe de caldura — soare cu raze (transfer termic)
+        'pompe-de-caldura' =>
+            '<circle cx="12" cy="12" r="4"/>'.
+            '<path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>',
+
+        // 🛡️ Acoperitori si prelate — acoperiș/prelată
+        'acoperitori-si-prelate' =>
+            '<path d="M3 12l9-9 9 9"/>'.
+            '<path d="M5 10v10a1 1 0 001 1h12a1 1 0 001-1V10"/>'.
+            '<line x1="2" y1="21" x2="22" y2="21"/>',
+
+        // 🚰 Robinete si vane — vana/robinet
+        'robinete-si-vane' =>
+            '<line x1="2" y1="12" x2="22" y2="12"/>'.
+            '<polygon points="8 8 16 16 16 8 8 16"/>'.
+            '<line x1="12" y1="5" x2="12" y2="8"/>'.
+            '<line x1="10" y1="5" x2="14" y2="5"/>',
+
+        // 📊 Masurare si testare — puls/semnal măsurare
+        'masurare-si-testare' =>
+            '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+
+        // 📦 Diverse — cutie/pachet
+        'diverse' =>
+            '<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>'.
+            '<polyline points="3.27 6.96 12 12.01 20.73 6.96"/>'.
+            '<line x1="12" y1="22.08" x2="12" y2="12"/>',
     ];
-    $defaultIcon = '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/>';
+    $defaultIcon =
+        '<circle cx="12" cy="12" r="4"/>'.
+        '<path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>';
     @endphp
 
     <div class="pr-categories-grid">
