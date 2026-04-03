@@ -265,5 +265,6 @@ function categorySlider() {
 }
 </script>
 @yield('scripts')
+<script src="https://piscineromania.ro/chatbot/chatbot.js" defer></script>
 </body>
 </html>
