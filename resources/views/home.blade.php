@@ -65,117 +65,27 @@
 
     @php
     $catIcons = [
-
-        // 🏊 Piscine — valuri de apă + scară
-        'piscine' =>
-            '<path d="M2 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/>'.
-            '<path d="M2 19c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/>'.
-            '<path d="M8 15V8a4 4 0 018 0v7"/>',
-
-        // ⚙️ Pompe recirculare — săgeți circulare (RotateCw)
-        'pompe-recirculare' =>
-            '<path d="M21 12a9 9 0 11-9-9"/>'.
-            '<polyline points="21 3 21 12 12 12"/>',
-
-        // 🔧 Filtre si filtrare — pâlnie filtru
-        'filtre-si-filtrare' =>
-            '<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>',
-
-        // 🧪 Chimicale si tratamente — eprubetă/flacon
-        'chimicale-si-tratamente' =>
-            '<line x1="9" y1="3" x2="15" y2="3"/>'.
-            '<path d="M10 3v5.5L6 15a3 3 0 002.68 4h6.64A3 3 0 0018 15l-4-6.5V3"/>',
-
-        // 🌡️ Incalzire apa — termometru
-        'incalzire-apa' =>
-            '<path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/>',
-
-        // 💡 Iluminat si accesorii — bec
-        'iluminat-si-accesorii' =>
-            '<line x1="9" y1="18" x2="15" y2="18"/>'.
-            '<line x1="10" y1="22" x2="14" y2="22"/>'.
-            '<path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14z"/>',
-
-        // 🪜 Scari si platforme — scară
-        'scari-si-platforme' =>
-            '<line x1="8" y1="2" x2="8" y2="22"/>'.
-            '<line x1="16" y1="2" x2="16" y2="22"/>'.
-            '<line x1="8" y1="7" x2="16" y2="7"/>'.
-            '<line x1="8" y1="12" x2="16" y2="12"/>'.
-            '<line x1="8" y1="17" x2="16" y2="17"/>',
-
-        // 🧹 Curatare si aspiratoare — perie + scânteie curățenie
-        'curatare-si-aspiratoare' =>
-            '<path d="M3 15h12a3 3 0 010 6H3v-6z"/>'.
-            '<line x1="15" y1="18" x2="21" y2="18"/>'.
-            '<line x1="19" y1="12" x2="21" y2="10"/>'.
-            '<line x1="17" y1="10" x2="19" y2="8"/>',
-
-        // 🛡️ Folie si etansare — scut cu bifă (sigiliu)
-        'folie-si-etansare' =>
-            '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'.
-            '<polyline points="9 12 11 14 15 10"/>',
-
-        // 🤖 Automatizare si control — cip electronic
-        'automatizare-si-control' =>
-            '<rect x="9" y="9" width="6" height="6" rx="1"/>'.
-            '<path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2"/>',
-
-        // 🧖 Saune si spa — aburi + cabină
-        'saune-si-spa' =>
-            '<path d="M8 6c0 2.5 2 3.5 2 6M12 4c0 3 2 4.5 2 7M16 6c0 2.5 2 3.5 2 6"/>'.
-            '<rect x="3" y="15" width="18" height="7" rx="2"/>',
-
-        // 🔗 Furtunuri si racorduri — conector conductă
-        'furtunuri-si-racorduri' =>
-            '<path d="M4 9h4v6H4a2 2 0 010-6z"/>'.
-            '<path d="M20 9h-4v6h4a2 2 0 000-6z"/>'.
-            '<rect x="8" y="7" width="8" height="10" rx="2"/>',
-
-        // 💧 Pompe submersibile — săgeată jos în apă
-        'pompe-submersibile' =>
-            '<line x1="12" y1="2" x2="12" y2="14"/>'.
-            '<polyline points="8 10 12 14 16 10"/>'.
-            '<rect x="4" y="17" width="16" height="5" rx="2"/>',
-
-        // 🫧 Hidromasaj si jacuzzi — bule de aer în apă
-        'hidromasaj-si-jacuzzi' =>
-            '<circle cx="7" cy="12" r="2"/>'.
-            '<circle cx="13" cy="8" r="2"/>'.
-            '<circle cx="18" cy="13" r="2"/>'.
-            '<path d="M2 20c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/>',
-
-        // ♨️ Pompe de caldura — soare cu raze (transfer termic)
-        'pompe-de-caldura' =>
-            '<circle cx="12" cy="12" r="4"/>'.
-            '<path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>',
-
-        // 🛡️ Acoperitori si prelate — acoperiș/prelată
-        'acoperitori-si-prelate' =>
-            '<path d="M3 12l9-9 9 9"/>'.
-            '<path d="M5 10v10a1 1 0 001 1h12a1 1 0 001-1V10"/>'.
-            '<line x1="2" y1="21" x2="22" y2="21"/>',
-
-        // 🚰 Robinete si vane — vana/robinet
-        'robinete-si-vane' =>
-            '<line x1="2" y1="12" x2="22" y2="12"/>'.
-            '<polygon points="8 8 16 16 16 8 8 16"/>'.
-            '<line x1="12" y1="5" x2="12" y2="8"/>'.
-            '<line x1="10" y1="5" x2="14" y2="5"/>',
-
-        // 📊 Masurare si testare — puls/semnal măsurare
-        'masurare-si-testare' =>
-            '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
-
-        // 📦 Diverse — cutie/pachet
-        'diverse' =>
-            '<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>'.
-            '<polyline points="3.27 6.96 12 12.01 20.73 6.96"/>'.
-            '<line x1="12" y1="22.08" x2="12" y2="12"/>',
+        'piscine'                 => '<path d="M2 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/><path d="M2 19c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/><path d="M8 15V8a4 4 0 018 0v7"/>',
+        'pompe-recirculare'       => '<path d="M21 12a9 9 0 11-9-9"/><polyline points="21 3 21 12 12 12"/>',
+        'filtre-si-filtrare'      => '<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>',
+        'chimicale-si-tratamente' => '<line x1="9" y1="3" x2="15" y2="3"/><path d="M10 3v5.5L6 15a3 3 0 002.68 4h6.64A3 3 0 0018 15l-4-6.5V3"/>',
+        'incalzire-apa'           => '<path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/>',
+        'iluminat-si-accesorii'   => '<line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14z"/>',
+        'scari-si-platforme'      => '<line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="17" x2="16" y2="17"/>',
+        'curatare-si-aspiratoare' => '<path d="M3 15h12a3 3 0 010 6H3v-6z"/><line x1="15" y1="18" x2="21" y2="18"/><line x1="19" y1="12" x2="21" y2="10"/><line x1="17" y1="10" x2="19" y2="8"/>',
+        'folie-si-etansare'       => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>',
+        'automatizare-si-control' => '<rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2"/>',
+        'saune-si-spa'            => '<path d="M8 6c0 2.5 2 3.5 2 6M12 4c0 3 2 4.5 2 7M16 6c0 2.5 2 3.5 2 6"/><rect x="3" y="15" width="18" height="7" rx="2"/>',
+        'furtunuri-si-racorduri'  => '<path d="M4 9h4v6H4a2 2 0 010-6z"/><path d="M20 9h-4v6h4a2 2 0 000-6z"/><rect x="8" y="7" width="8" height="10" rx="2"/>',
+        'pompe-submersibile'      => '<line x1="12" y1="2" x2="12" y2="14"/><polyline points="8 10 12 14 16 10"/><rect x="4" y="17" width="16" height="5" rx="2"/>',
+        'hidromasaj-si-jacuzzi'   => '<circle cx="7" cy="12" r="2"/><circle cx="13" cy="8" r="2"/><circle cx="18" cy="13" r="2"/><path d="M2 20c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/>',
+        'pompe-de-caldura'        => '<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>',
+        'acoperitori-si-prelate'  => '<path d="M3 12l9-9 9 9"/><path d="M5 10v10a1 1 0 001 1h12a1 1 0 001-1V10"/><line x1="2" y1="21" x2="22" y2="21"/>',
+        'robinete-si-vane'        => '<line x1="2" y1="12" x2="22" y2="12"/><polygon points="8 8 16 16 16 8 8 16"/><line x1="12" y1="5" x2="12" y2="8"/><line x1="10" y1="5" x2="14" y2="5"/>',
+        'masurare-si-testare'     => '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+        'diverse'                 => '<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>',
     ];
-    $defaultIcon =
-        '<circle cx="12" cy="12" r="4"/>'.
-        '<path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>';
+    $defaultIcon = '<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>';
     @endphp
 
     <div class="pr-categories-grid">
