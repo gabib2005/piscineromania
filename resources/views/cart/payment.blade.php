@@ -6,6 +6,17 @@
     <h1 class="text-2xl font-bold text-[#0a2540] mb-2" style="font-family:'Outfit',sans-serif">💳 Plată securizată</h1>
     <p class="text-gray-500 mb-8">Comanda #{{ $order->order_number }} — Total: <strong>{{ number_format($order->total, 2, ',', '.') }} Lei</strong></p>
 
+    {{-- ⚠️ BANNER TESTARE --}}
+    <div style="background:linear-gradient(135deg,#fff7ed,#ffedd5);border:2px solid #fb923c;border-radius:14px;padding:18px 20px;margin-bottom:28px;display:flex;gap:14px;align-items:flex-start">
+        <span style="font-size:28px;line-height:1;flex-shrink:0">🚧</span>
+        <div>
+            <div style="font-weight:700;color:#9a3412;font-size:15px;margin-bottom:5px;font-family:'Outfit',sans-serif">Site în perioada de testare</div>
+            <div style="color:#c2410c;font-size:13px;line-height:1.6">
+                Momentan nu se procesează plăți reale. Comanda ta a fost înregistrată și vei primi o <strong>notificare pe email</strong> imediat ce platforma devine funcțională, pentru a finaliza plata și a confirma livrarea.
+            </div>
+        </div>
+    </div>
+
     <div class="bg-white rounded-xl border border-gray-100 p-8">
         <div id="payment-element" class="mb-6"></div>
         <div id="payment-message" class="hidden text-red-600 text-sm mb-4"></div>
