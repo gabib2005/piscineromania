@@ -26,6 +26,7 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
+            **/vendor/**
             .github/**
             public/design-preview/**
 
