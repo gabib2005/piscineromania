@@ -6,4 +6,5 @@ $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->call('view:clear');
 $kernel->call('cache:clear');
 $kernel->call('config:clear');
+$kernel->call('route:clear');
 echo 'Cache cleared OK!';
