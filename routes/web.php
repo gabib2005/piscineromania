@@ -7,6 +7,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\StripeWebhookController;
+use App\Http\Controllers\LegalController;
+use App\Http\Controllers\GdprController;
 use Illuminate\Support\Facades\Route;
 
 // Public shop routes
@@ -44,5 +46,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/cont/profil', [AccountController::class, 'profile'])->name('account.profile');
     Route::put('/cont/profil', [AccountController::class, 'updateProfile'])->name('account.profile.update');
 });
+
+// ── Pagini legale (publice) ──
+Route::get('/politica-confidentialitate', [LegalController::class, 'privacy'])->name('legal.privacy');
+Route::get('/termeni-conditii', [LegalController::class, 'terms'])->name('legal.terms');
+Route::get('/politica-cookies', [LegalController::class, 'cookies'])->name('legal.cookies');
+
+// ── GDPR (autentificate) ──
+Route::middleware('auth')->group(function () {
+    Route::get('/cont/gdpr', [GdprController::class, 'index'])->name('account.gdpr');
+    Route::get('/cont/export-date', [GdprController::class, 'exportData'])->name('account.gdpr.export');
+    Route::post('/cont/sterge-cont', [GdprController::class, 'deleteAccount'])->name('account.gdpr.delete');
+});
+
+// ── Consent API (public) ──
+Route::post('/gdpr/consent', [GdprController::class, 'recordConsent'])->name('gdpr.consent');
 
 require __DIR__.'/auth.php';

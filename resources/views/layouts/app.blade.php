@@ -187,8 +187,10 @@
             <ul>
                 <li><a href="mailto:contact@piscineromania.ro">contact@piscineromania.ro</a></li>
                 <li><a href="tel:+40000000000">+40 XXX XXX XXX</a></li>
-                <li><a href="#">Termeni & Condiții</a></li>
-                <li><a href="#">Politica GDPR</a></li>
+                <li><a href="{{ route('legal.terms') }}">Termeni & Condiții</a></li>
+                <li><a href="{{ route('legal.privacy') }}">Politica GDPR</a></li>
+                <li><a href="{{ route('legal.cookies') }}">Politica Cookies</a></li>
+                @auth<li><a href="{{ route('account.gdpr') }}">Drepturi GDPR</a></li>@endauth
             </ul>
         </div>
     </div>
@@ -266,5 +268,6 @@ function categorySlider() {
 </script>
 @yield('scripts')
 <script src="https://piscineromania.ro/chatbot/chatbot.js" defer></script>
+@include('components.cookie-banner')
 </body>
 </html>

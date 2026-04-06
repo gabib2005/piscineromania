@@ -164,6 +164,21 @@
             @enderror
           </div>
 
+          {{-- GDPR Consent --}}
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:16px">
+            <input type="checkbox" name="gdpr_consent" id="gdpr_consent" required
+                   style="margin-top:3px;flex-shrink:0;width:15px;height:15px;accent-color:#00b4d8;cursor:pointer">
+            <label for="gdpr_consent" style="font-size:.8rem;color:#4b5563;line-height:1.6;cursor:pointer">
+              Am citit și accept
+              <a href="{{ route('legal.privacy') }}" target="_blank" style="color:#00b4d8;text-decoration:underline">Politica de Confidențialitate</a>
+              și
+              <a href="{{ route('legal.terms') }}" target="_blank" style="color:#00b4d8;text-decoration:underline">Termenii și Condițiile</a>. *
+            </label>
+          </div>
+          @error('gdpr_consent')
+            <p style="color:#dc2626;font-size:.78rem;margin-bottom:10px">{{ $message }}</p>
+          @enderror
+
           <button type="submit" class="auth-submit-btn">Creează cont →</button>
         </form>
 

@@ -30,5 +30,17 @@
             </button>
         </div>
     </form>
+
+    {{-- GDPR --}}
+    <div class="mt-6 p-4 bg-blue-50 border border-blue-100 rounded-xl flex items-center justify-between gap-4">
+        <div>
+            <p class="font-semibold text-[#0a2540] text-sm">🛡️ Date personale & GDPR</p>
+            <p class="text-gray-500 text-xs mt-0.5">Export date, ștergere cont și drepturile tale conform GDPR.</p>
+        </div>
+        <a href="{{ route('account.gdpr') }}"
+           class="flex-shrink-0 bg-[#0a2540] text-white px-4 py-2 rounded-lg text-xs font-semibold hover:bg-[#00b4d8] transition-colors whitespace-nowrap">
+            Gestionează →
+        </a>
+    </div>
 </div>
 @endsection

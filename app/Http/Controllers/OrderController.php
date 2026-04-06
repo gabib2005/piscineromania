@@ -32,6 +32,10 @@ class OrderController extends Controller
             'shipping_city'    => 'required|string|max:100',
             'shipping_county'  => 'required|string|max:100',
             'shipping_zip'     => 'nullable|string|max:20',
+            'gdpr_consent'     => 'required|accepted',
+        ], [
+            'gdpr_consent.required' => 'Trebuie să accepți Politica de Confidențialitate pentru a plasa comanda.',
+            'gdpr_consent.accepted' => 'Trebuie să accepți Politica de Confidențialitate pentru a plasa comanda.',
         ]);
 
         $items = $this->cart->getItems();

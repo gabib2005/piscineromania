@@ -124,7 +124,23 @@
                             <span>Total</span><span>{{ number_format($totals['total'], 2, ',', '.') }} Lei</span>
                         </div>
                     </div>
-                    <button type="submit" class="block w-full mt-6 bg-[#0a2540] text-white py-3 rounded-xl text-center font-semibold hover:bg-[#00b4d8] transition-colors">
+                    {{-- GDPR Checkout Consent --}}
+                    <div style="display:flex;align-items:flex-start;gap:10px;margin-top:20px;padding:14px;background:#f0f9ff;border-radius:10px;border:1px solid #bae6fd">
+                        <input type="checkbox" name="gdpr_consent" id="gdpr_checkout" required
+                               style="margin-top:3px;flex-shrink:0;width:15px;height:15px;accent-color:#00b4d8;cursor:pointer">
+                        <label for="gdpr_checkout" style="font-size:.78rem;color:#374151;line-height:1.6;cursor:pointer">
+                            Prin plasarea comenzii confirm că am citit
+                            <a href="{{ route('legal.privacy') }}" target="_blank" style="color:#00b4d8;text-decoration:underline">Politica de Confidențialitate</a>
+                            și
+                            <a href="{{ route('legal.terms') }}" target="_blank" style="color:#00b4d8;text-decoration:underline">Termenii și Condițiile</a>.
+                            Datele mele vor fi folosite exclusiv pentru procesarea comenzii. *
+                        </label>
+                    </div>
+                    @error('gdpr_consent')
+                        <p style="color:#dc2626;font-size:.78rem;margin-top:6px">{{ $message }}</p>
+                    @enderror
+
+                    <button type="submit" class="block w-full mt-4 bg-[#0a2540] text-white py-3 rounded-xl text-center font-semibold hover:bg-[#00b4d8] transition-colors">
                         Continuă la plată →
                     </button>
                 </div>
