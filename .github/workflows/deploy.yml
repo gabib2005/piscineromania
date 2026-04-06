@@ -33,4 +33,5 @@ jobs:
 
       - name: Clear Laravel Cache
         run: |
+          curl -s https://shop.piscineromania.ro/rc_clear_pr2025.php || true
           curl -s https://shop.piscineromania.ro/clearcache.php || true
