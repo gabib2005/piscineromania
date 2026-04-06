@@ -29,6 +29,7 @@ jobs:
             **/vendor/**
             .github/**
             public/design-preview/**
+          state-name: .ftp-deploy-sync-state-v2.json
 
       - name: Clear Laravel Cache
         run: |
