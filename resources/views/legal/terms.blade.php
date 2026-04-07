@@ -3,20 +3,20 @@
 @section('description', 'Termenii și condițiile PiscineRomania SRL. Informații despre procesul de comandă, dreptul de retragere și politica de retur.')
 
 @section('content')
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-    {{-- Hero --}}
-    <div class="mb-10 text-center">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background: rgba(0,180,216,0.1)">
-            <svg width="30" height="30" fill="none" stroke="#00b4d8" stroke-width="1.7" viewBox="0 0 24 24">
-                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-                <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
-            </svg>
-        </div>
-        <h1 class="text-3xl font-bold text-[#0a2540]" style="font-family:'Outfit',sans-serif">Termeni și Condiții</h1>
-        <p class="text-gray-500 mt-2 text-sm">Ultima actualizare: 6 aprilie 2026 · Versiunea 1.0</p>
+{{-- Hero full-width --}}
+<div style="background:linear-gradient(135deg,#0a2540 0%,#0d3a6e 100%);" class="py-16 sm:py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+        <p class="font-bold uppercase mb-5 tracking-widest text-xs" style="color:#00b4d8;letter-spacing:0.22em">Document Legal</p>
+        <h1 class="text-white leading-tight mb-5" style="font-size:clamp(2rem,6vw,3.8rem);line-height:1.15">
+            <span class="font-bold" style="font-family:'Outfit',sans-serif">Termeni și</span><br>
+            <em class="font-light" style="font-family:Georgia,'Times New Roman',serif;font-style:italic">Condiții</em>
+        </h1>
+        <p class="text-sm" style="color:rgba(255,255,255,0.45)">Ultima actualizare: 6 aprilie 2026</p>
     </div>
+</div>
 
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 lg:p-12 space-y-10 text-gray-700 leading-relaxed" style="font-size:0.95rem">
 
         {{-- Intro --}}
@@ -39,7 +39,7 @@
                 <p><strong>Denumire:</strong> PiscineRomania SRL</p>
                 <p><strong>Domeniu:</strong> piscineromania.ro</p>
                 <p><strong>Email:</strong> <a href="mailto:office@piscineromania.ro" class="text-[#00b4d8]">office@piscineromania.ro</a></p>
-                <p><strong>Telefon:</strong> <a href="tel:+40000000000" class="text-[#00b4d8]">+40 XXX XXX XXX</a></p>
+                <p><strong>Telefon:</strong> <a href="tel:+40745104024" class="text-[#00b4d8]">+40 745 104 024</a></p>
                 <p><strong>Program:</strong> Luni–Vineri, 09:00–18:00</p>
             </div>
         </section>
@@ -256,5 +256,6 @@
         </div>
 
     </div>
+</div>
 </div>
 @endsection
