@@ -3,20 +3,23 @@
 @section('description', 'Politica de cookies PiscineRomania. Aflați ce tipuri de cookies folosim, scopul lor și cum le puteți gestiona.')
 
 @section('content')
-
-{{-- Hero full-width --}}
-<div style="background:linear-gradient(135deg,#0a2540 0%,#0d3a6e 100%);" class="py-16 sm:py-24 px-6">
-    <div class="max-w-4xl mx-auto">
-        <p class="font-bold uppercase mb-5 tracking-widest text-xs" style="color:#00b4d8;letter-spacing:0.22em">Document Legal</p>
-        <h1 class="text-white leading-tight mb-5" style="font-size:clamp(2rem,6vw,3.8rem);line-height:1.15">
-            <span class="font-bold" style="font-family:'Outfit',sans-serif">Politica de</span><br>
-            <em class="font-light" style="font-family:Georgia,'Times New Roman',serif;font-style:italic">Cookies</em>
-        </h1>
-        <p class="text-sm" style="color:rgba(255,255,255,0.45)">Ultima actualizare: 6 aprilie 2026</p>
-    </div>
-</div>
-
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+    {{-- Hero --}}
+    <div class="mb-10 text-center">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background: rgba(0,180,216,0.1)">
+            <svg width="30" height="30" fill="none" stroke="#00b4d8" stroke-width="1.7" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="8.5" cy="9" r="1.5" fill="#00b4d8" stroke="none"/>
+                <circle cx="14.5" cy="8" r="1" fill="#00b4d8" stroke="none"/>
+                <circle cx="16" cy="14" r="1.5" fill="#00b4d8" stroke="none"/>
+                <circle cx="10" cy="15" r="1" fill="#00b4d8" stroke="none"/>
+            </svg>
+        </div>
+        <h1 class="text-3xl font-bold text-[#0a2540]" style="font-family:'Outfit',sans-serif">Politica de Cookies</h1>
+        <p class="text-gray-500 mt-2 text-sm">Ultima actualizare: 6 aprilie 2026 · Versiunea 1.0</p>
+    </div>
+
     <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 lg:p-12 space-y-10 text-gray-700 leading-relaxed" style="font-size:0.95rem">
 
         {{-- Intro --}}
@@ -250,6 +253,5 @@
         </div>
 
     </div>
-</div>
 </div>
 @endsection
