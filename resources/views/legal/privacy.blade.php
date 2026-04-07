@@ -3,19 +3,20 @@
 @section('description', 'Politica de confidențialitate PiscineRomania SRL. Aflați cum colectăm, utilizăm și protejăm datele dumneavoastră personale.')
 
 @section('content')
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-    {{-- Hero --}}
-    <div class="mb-10 text-center">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background: rgba(0,180,216,0.1)">
-            <svg width="30" height="30" fill="none" stroke="#00b4d8" stroke-width="1.7" viewBox="0 0 24 24">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-        </div>
-        <h1 class="text-3xl font-bold text-[#0a2540]" style="font-family:'Outfit',sans-serif">Politica de Confidențialitate</h1>
-        <p class="text-gray-500 mt-2 text-sm">Ultima actualizare: 6 aprilie 2026 · Versiunea 1.0</p>
+{{-- Hero full-width --}}
+<div style="background:linear-gradient(135deg,#0a2540 0%,#0d3a6e 100%);" class="py-16 sm:py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+        <p class="font-bold uppercase mb-5 tracking-widest text-xs" style="color:#00b4d8;letter-spacing:0.22em">Document Legal</p>
+        <h1 class="text-white leading-tight mb-5" style="font-size:clamp(2rem,6vw,3.8rem);line-height:1.15">
+            <span class="font-bold" style="font-family:'Outfit',sans-serif">Politica de</span><br>
+            <em class="font-light" style="font-family:Georgia,'Times New Roman',serif;font-style:italic">Confidențialitate</em>
+        </h1>
+        <p class="text-sm" style="color:rgba(255,255,255,0.45)">Ultima actualizare: 6 aprilie 2026</p>
     </div>
+</div>
 
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 lg:p-12 space-y-10 text-gray-700 leading-relaxed" style="font-size:0.95rem">
 
         {{-- Intro --}}
@@ -40,7 +41,7 @@
                 <p><strong>Denumire:</strong> PiscineRomania SRL</p>
                 <p><strong>Sediu:</strong> România</p>
                 <p><strong>Email:</strong> <a href="mailto:office@piscineromania.ro" class="text-[#00b4d8]">office@piscineromania.ro</a></p>
-                <p><strong>Telefon:</strong> <a href="tel:+40000000000" class="text-[#00b4d8]">+40 XXX XXX XXX</a></p>
+                <p><strong>Telefon:</strong> <a href="tel:+40745104024" class="text-[#00b4d8]">+40 745 104 024</a></p>
                 <p><strong>Autoritate de supraveghere:</strong> ANSPDCP — <a href="https://www.dataprotection.ro" target="_blank" rel="noopener" class="text-[#00b4d8]">www.dataprotection.ro</a></p>
             </div>
         </section>
@@ -301,5 +302,6 @@
         </div>
 
     </div>
+</div>
 </div>
 @endsection
