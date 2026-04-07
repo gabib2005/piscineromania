@@ -1,3 +1,8 @@
+# Force PHP 8.3 via EasyApache 4 handler (PHP-FPM disabled on this server)
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-ea-php83
+</FilesMatch>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
