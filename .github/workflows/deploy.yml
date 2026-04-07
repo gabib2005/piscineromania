@@ -21,7 +21,7 @@ jobs:
           username: Gabib@piscineromania.ro
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          server-dir: /shop_test398153.ro/
+          server-dir: /
           exclude: |
             **/.git*
             **/.git*/**
