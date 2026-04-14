@@ -9,6 +9,7 @@ use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\StripeWebhookController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\GdprController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 // Public shop routes
@@ -46,6 +47,29 @@ Route::middleware('auth')->group(function () {
     Route::get('/cont/profil', [AccountController::class, 'profile'])->name('account.profile');
     Route::put('/cont/profil', [AccountController::class, 'updateProfile'])->name('account.profile.update');
 });
+
+// ── Pagini categorii principale ──
+Route::get('/piscine', [PageController::class, 'piscine'])->name('page.piscine');
+Route::get('/piscine/concepte', [PageController::class, 'piscineConcepte'])->name('page.piscine.concepte');
+Route::get('/piscine/concepte/{slug}', [PageController::class, 'piscineConcept'])->name('page.piscine.concept');
+Route::get('/piscine/tendinte', [PageController::class, 'piscineTendinte'])->name('page.piscine.tendinte');
+Route::get('/piscine/culoarea-apei', [PageController::class, 'piscineCuloareaApei'])->name('page.piscine.culoarea-apei');
+Route::get('/piscine/tehnologie', [PageController::class, 'piscineTehnologie'])->name('page.piscine.tehnologie');
+Route::get('/piscine/tehnologie/{slug}', [PageController::class, 'piscineTehnologieDetail'])->name('page.piscine.tehnologie.detail');
+Route::get('/piscine/renovari', [PageController::class, 'piscineRenovari'])->name('page.piscine.renovari');
+Route::get('/piscine/servicii', [PageController::class, 'piscineServicii'])->name('page.piscine.servicii');
+Route::get('/piscine-publice', [PageController::class, 'piscinePublice'])->name('page.piscine-publice');
+Route::get('/cazi-hidromasaj', [PageController::class, 'caziHidromasaj'])->name('page.cazi');
+Route::get('/cazi-hidromasaj/{slug}', [PageController::class, 'caziSpa'])->name('page.cazi.spa');
+Route::get('/hamam-bai-de-abur', [PageController::class, 'hamam'])->name('page.hamam');
+Route::get('/acoperire', [PageController::class, 'acoperire'])->name('page.acoperire');
+Route::get('/acoperire/{slug}', [PageController::class, 'acoperiereDetail'])->name('page.acoperire.detail');
+Route::get('/spa-wellness', [PageController::class, 'spaWellness'])->name('page.spa');
+Route::get('/spa-wellness/{slug}', [PageController::class, 'spaWellnessDetail'])->name('page.spa.detail');
+Route::get('/servicii', [PageController::class, 'servicii'])->name('page.servicii');
+Route::get('/actualitate', [PageController::class, 'actualitate'])->name('page.actualitate');
+Route::get('/contact', [PageController::class, 'contact'])->name('page.contact');
+Route::post('/contact', [PageController::class, 'contactSubmit'])->name('page.contact.submit');
 
 // ── Pagini legale (publice) ──
 Route::get('/politica-confidentialitate', [LegalController::class, 'privacy'])->name('legal.privacy');

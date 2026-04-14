@@ -100,33 +100,6 @@
     </div>
 </header>
 
-{{-- ════ CATEGORY NAV ════ --}}
-<nav class="pr-cat-nav"
-     x-data="categorySlider()"
-     @mousemove="onMouseMove($event)"
-     @mouseleave="onMouseLeave()"
-     @mouseenter="onMouseEnter()"
-     @touchstart.passive="onTouchStart($event)"
-     @touchmove.passive="onTouchMove($event)"
-     @touchend.passive="onTouchEnd()">
-    <div class="overflow-hidden">
-        <div class="pr-cat-track"
-             x-ref="track"
-             :style="`transform: translateX(${offset}px)`">
-            <a href="{{ route('shop.index') }}"
-               class="pr-cat-link {{ request()->routeIs('shop.index') && !request('category') ? 'active' : '' }}">
-                Toate produsele
-            </a>
-            @foreach(\App\Models\Category::where('is_active', true)->orderBy('sort_order')->get() as $cat)
-            <a href="{{ route('shop.category', $cat->slug) }}"
-               class="pr-cat-link {{ request()->is('*/'.$cat->slug) ? 'active' : '' }}">
-                {{ $cat->name }}
-            </a>
-            @endforeach
-        </div>
-    </div>
-</nav>
-
 {{-- FLASH MESSAGES --}}
 @if(session('success'))
 <div class="pr-flash-success" x-data x-init="setTimeout(() => $el.remove(), 4000)">
@@ -139,9 +112,208 @@
 </div>
 @endif
 
-<main class="@yield('main-class')">
-    @yield('content')
-</main>
+{{-- ════ LAYOUT: SIDEBAR STÂNGA + CONȚINUT ════ --}}
+<div class="pr-layout">
+
+    {{-- ════ MENIU STÂNGA ════ --}}
+    <div class="pr-sidebar-wrapper"
+         x-data="{ active: null }"
+         @mouseleave="active = null">
+
+        <aside class="pr-sidebar">
+            <nav class="pr-sidebar-nav">
+
+                {{-- PISCINE REZIDENTIALE --}}
+                <div class="pr-sidebar-item" @mouseenter="active = 'piscine'">
+                    <a href="{{ route('page.piscine') }}"
+                       class="pr-sidebar-link {{ request()->is('piscine*') && !request()->is('piscine-publice') ? 'active' : '' }}">
+                        Piscine rezidentiale
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    </a>
+                </div>
+
+                {{-- PISCINE PUBLICE --}}
+                <div class="pr-sidebar-item" @mouseenter="active = null">
+                    <a href="{{ route('page.piscine-publice') }}"
+                       class="pr-sidebar-link {{ request()->is('piscine-publice') ? 'active' : '' }}">
+                        Piscine publice
+                    </a>
+                </div>
+
+                {{-- CAZI HIDROMASAJ --}}
+                <div class="pr-sidebar-item" @mouseenter="active = 'cazi'">
+                    <a href="{{ route('page.cazi') }}"
+                       class="pr-sidebar-link {{ request()->is('cazi-hidromasaj*') ? 'active' : '' }}">
+                        Cazi hidromasaj
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    </a>
+                </div>
+
+                {{-- HAMAM --}}
+                <div class="pr-sidebar-item" @mouseenter="active = null">
+                    <a href="{{ route('page.hamam') }}"
+                       class="pr-sidebar-link {{ request()->is('hamam*') ? 'active' : '' }}">
+                        Hamam & Bai de abur
+                    </a>
+                </div>
+
+                {{-- ACOPERIRE --}}
+                <div class="pr-sidebar-item" @mouseenter="active = 'acoperire'">
+                    <a href="{{ route('page.acoperire') }}"
+                       class="pr-sidebar-link {{ request()->is('acoperire*') ? 'active' : '' }}">
+                        Acoperire
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    </a>
+                </div>
+
+                {{-- SPA & WELLNESS --}}
+                <div class="pr-sidebar-item" @mouseenter="active = 'spa'">
+                    <a href="{{ route('page.spa') }}"
+                       class="pr-sidebar-link {{ request()->is('spa-wellness*') ? 'active' : '' }}">
+                        SPA & Wellness
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    </a>
+                </div>
+
+                <div class="pr-sidebar-sep"></div>
+
+                {{-- SERVICII --}}
+                <div class="pr-sidebar-item" @mouseenter="active = null">
+                    <a href="{{ route('page.servicii') }}"
+                       class="pr-sidebar-link {{ request()->is('servicii') ? 'active' : '' }}">
+                        Servicii
+                    </a>
+                </div>
+
+                {{-- ACTUALITATE --}}
+                <div class="pr-sidebar-item" @mouseenter="active = null">
+                    <a href="{{ route('page.actualitate') }}"
+                       class="pr-sidebar-link {{ request()->is('actualitate*') ? 'active' : '' }}">
+                        Actualitate
+                    </a>
+                </div>
+
+                {{-- CONTACT --}}
+                <div class="pr-sidebar-item" @mouseenter="active = null">
+                    <a href="{{ route('page.contact') }}"
+                       class="pr-sidebar-link {{ request()->is('contact') ? 'active' : '' }}">
+                        Contact
+                    </a>
+                </div>
+
+                <div class="pr-sidebar-sep"></div>
+
+                {{-- MAGAZIN --}}
+                <div class="pr-sidebar-item" @mouseenter="active = null">
+                    <a href="{{ route('shop.index') }}"
+                       class="pr-sidebar-link pr-sidebar-magazin {{ request()->routeIs('shop.*') ? 'active' : '' }}">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 2L3 6v1a1 1 0 001 1h16a1 1 0 001-1V6L18 2z"/><path d="M3 8l2 13a2 2 0 002 2h10a2 2 0 002-2l2-13"/></svg>
+                        Magazin
+                    </a>
+                </div>
+
+            </nav>
+        </aside>
+
+        {{-- ── FLYOUT PISCINE REZIDENTIALE ── --}}
+        <div class="pr-flyout"
+             x-show="active === 'piscine'"
+             x-data="{ sub: 'concepte' }"
+             style="display:none">
+            <div class="pr-flyout-col1">
+                <div class="pr-flyout-title">Inspiratie & Design</div>
+                <a href="{{ route('page.piscine.concepte') }}" class="pr-flyout-section" :class="{ 'active': sub === 'concepte' }" @mouseenter="sub = 'concepte'">
+                    Concepte <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </a>
+                <a href="{{ route('page.piscine.tendinte') }}" class="pr-flyout-section" :class="{ 'active': sub === 'tendinte' }" @mouseenter="sub = 'tendinte'">
+                    Tendinte
+                </a>
+                <a href="{{ route('page.piscine.culoarea-apei') }}" class="pr-flyout-section" :class="{ 'active': sub === 'culoarea-apei' }" @mouseenter="sub = 'culoarea-apei'">
+                    Culoarea apei
+                </a>
+                <a href="{{ route('page.piscine.tehnologie') }}" class="pr-flyout-section" :class="{ 'active': sub === 'tehnologie' }" @mouseenter="sub = 'tehnologie'">
+                    Tehnologie <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </a>
+                <a href="{{ route('page.piscine.renovari') }}" class="pr-flyout-section" :class="{ 'active': sub === 'renovari' }" @mouseenter="sub = 'renovari'">
+                    Renovari
+                </a>
+            </div>
+            <div class="pr-flyout-col2">
+                <div x-show="sub === 'concepte'">
+                    <div class="pr-flyout-title">Tipuri de piscine</div>
+                    <a href="{{ route('page.piscine.concept', 'piscine-cu-skimmer') }}" class="pr-flyout-link">Piscine cu skimmer</a>
+                    <a href="{{ route('page.piscine.concept', 'piscine-infinity') }}" class="pr-flyout-link">Piscine infinity</a>
+                    <a href="{{ route('page.piscine.concept', 'piscine-cu-rigola-perimetrala') }}" class="pr-flyout-link">Piscine cu rigola perimetrala</a>
+                    <a href="{{ route('page.piscine.concept', 'piscina-interioara') }}" class="pr-flyout-link">Piscina interioara</a>
+                    <a href="{{ route('page.piscine.concept', 'aqua-fitness') }}" class="pr-flyout-link">Aqua fitness</a>
+                    <a href="{{ route('page.piscine.concept', 'piscine-inox') }}" class="pr-flyout-link">Piscine inox</a>
+                    <a href="{{ route('page.piscine.concept', 'piscine-cu-pereti-sticla') }}" class="pr-flyout-link">Piscine cu pereti sticla</a>
+                </div>
+                <div x-show="sub === 'tendinte'">
+                    <div class="pr-flyout-title">Tendinte</div>
+                    <p style="padding:8px 0 12px;font-size:13px;color:var(--gray);line-height:1.6">Descoperiti cele mai noi tendinte in designul piscinelor rezidentiale pentru 2025-2026.</p>
+                    <a href="{{ route('page.piscine.tendinte') }}" class="pr-flyout-link">Citeste mai mult →</a>
+                </div>
+                <div x-show="sub === 'culoarea-apei'">
+                    <div class="pr-flyout-title">Culoarea apei</div>
+                    <p style="padding:8px 0 12px;font-size:13px;color:var(--gray);line-height:1.6">Apa ideala are o culoare albastra-turcoaz transparenta, rezultatul unui echilibru perfect al chimiei apei.</p>
+                    <a href="{{ route('page.piscine.culoarea-apei') }}" class="pr-flyout-link">Citeste mai mult →</a>
+                </div>
+                <div x-show="sub === 'tehnologie'">
+                    <div class="pr-flyout-title">Sisteme tehnice</div>
+                    <a href="{{ route('page.piscine.tehnologie.detail', 'filtrare') }}" class="pr-flyout-link">Filtrare</a>
+                    <a href="{{ route('page.piscine.tehnologie.detail', 'incalzire') }}" class="pr-flyout-link">Incalzire</a>
+                    <a href="{{ route('page.piscine.tehnologie.detail', 'tratament-apa') }}" class="pr-flyout-link">Tratament apa</a>
+                    <a href="{{ route('page.piscine.tehnologie.detail', 'iluminare') }}" class="pr-flyout-link">Iluminare</a>
+                    <a href="{{ route('page.piscine.tehnologie.detail', 'jocuri-acvatice') }}" class="pr-flyout-link">Jocuri acvatice</a>
+                </div>
+                <div x-show="sub === 'renovari'">
+                    <div class="pr-flyout-title">Renovare piscine</div>
+                    <p style="padding:8px 0 12px;font-size:13px;color:var(--gray);line-height:1.6">Renovam si modernizam orice tip de piscina, de la mozaic la sisteme de filtrare de ultima generatie.</p>
+                    <a href="{{ route('page.piscine.renovari') }}" class="pr-flyout-link">Vezi servicii →</a>
+                </div>
+            </div>
+        </div>
+
+        {{-- ── FLYOUT CAZI HIDROMASAJ ── --}}
+        <div class="pr-flyout pr-flyout-simple" x-show="active === 'cazi'" style="display:none">
+            <div class="pr-flyout-col1" style="border-right:none">
+                <div class="pr-flyout-title">Tipuri SPA</div>
+                <a href="{{ route('page.cazi.spa', 'spa-portabil') }}" class="pr-flyout-link">SPA Portabil</a>
+                <a href="{{ route('page.cazi.spa', 'spa-incorporat') }}" class="pr-flyout-link">SPA Incorporat</a>
+                <a href="{{ route('page.cazi.spa', 'spa-public') }}" class="pr-flyout-link">SPA Public</a>
+            </div>
+        </div>
+
+        {{-- ── FLYOUT ACOPERIRE ── --}}
+        <div class="pr-flyout pr-flyout-simple" x-show="active === 'acoperire'" style="display:none">
+            <div class="pr-flyout-col1" style="border-right:none">
+                <div class="pr-flyout-title">Tipuri acoperire</div>
+                <a href="{{ route('page.acoperire.detail', 'prelata-izotermica') }}" class="pr-flyout-link">Prelata izotermica</a>
+                <a href="{{ route('page.acoperire.detail', 'prelata-securitate') }}" class="pr-flyout-link">Prelata securitate</a>
+                <a href="{{ route('page.acoperire.detail', 'acoperire-retractabila') }}" class="pr-flyout-link">Acoperire retractabila</a>
+            </div>
+        </div>
+
+        {{-- ── FLYOUT SPA & WELLNESS ── --}}
+        <div class="pr-flyout pr-flyout-simple" x-show="active === 'spa'" style="display:none">
+            <div class="pr-flyout-col1" style="border-right:none">
+                <div class="pr-flyout-title">Wellness & Relaxare</div>
+                <a href="{{ route('page.spa.detail', 'hamam') }}" class="pr-flyout-link">Hamam</a>
+                <a href="{{ route('page.spa.detail', 'dusuri-emotionale') }}" class="pr-flyout-link">Dusuri emotionale</a>
+                <a href="{{ route('page.spa.detail', 'dusuri-vichy') }}" class="pr-flyout-link">Dusuri Vichy</a>
+                <a href="{{ route('page.spa.detail', 'fotolii-relaxare') }}" class="pr-flyout-link">Fotolii relaxare</a>
+            </div>
+        </div>
+
+    </div>{{-- /sidebar-wrapper --}}
+
+    {{-- ════ CONȚINUT PRINCIPAL ════ --}}
+    <main class="pr-content @yield('main-class')">
+        @yield('content')
+    </main>
+
+</div>{{-- /pr-layout --}}
 
 {{-- ════ FOOTER ════ --}}
 <footer class="pr-footer">
@@ -166,7 +338,7 @@
             <h4>Categorii</h4>
             <ul>
                 <li><a href="{{ route('shop.index') }}">Toate produsele</a></li>
-                @foreach(\App\Models\Category::where('is_active', true)->orderBy('sort_order')->limit(5)->get() as $cat)
+                @foreach(\App\Models\Category::where('is_active', true)->whereNull('parent_id')->orderBy('sort_order')->limit(5)->get() as $cat)
                 <li><a href="{{ route('shop.category', $cat->slug) }}">{{ $cat->name }}</a></li>
                 @endforeach
             </ul>
@@ -186,7 +358,7 @@
             <h4>Contact</h4>
             <ul>
                 <li><a href="mailto:contact@piscineromania.ro">contact@piscineromania.ro</a></li>
-                <li><a href="tel:+40000000000">+40 XXX XXX XXX</a></li>
+                <li><a href="tel:+40745104024">+40745104024</a></li>
                 <li><a href="{{ route('legal.terms') }}">Termeni & Condiții</a></li>
                 <li><a href="{{ route('legal.privacy') }}">Politica GDPR</a></li>
                 <li><a href="{{ route('legal.cookies') }}">Politica Cookies</a></li>

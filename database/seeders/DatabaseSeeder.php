@@ -24,7 +24,11 @@ class DatabaseSeeder extends Seeder
         );
         $admin->assignRole('admin');
 
-        // Categories from Aquashop.hu catalog
+        // Categories — run CategoryMenuSeeder
+        $this->call(CategoryMenuSeeder::class);
+
+        /*
+        // OLD categories from Aquashop.hu catalog — commented out, replaced by CategoryMenuSeeder
         $categories = [
             ['name' => 'Piscine',                  'icon' => '🏊', 'sort_order' => 1],
             ['name' => 'Pompe recirculare',         'icon' => '⚙️',  'sort_order' => 2],
@@ -46,7 +50,6 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Masurare si testare',       'icon' => '📊', 'sort_order' => 18],
             ['name' => 'Diverse',                   'icon' => '📦', 'sort_order' => 19],
         ];
-
         foreach ($categories as $cat) {
             Category::firstOrCreate(
                 ['name' => $cat['name']],
@@ -58,8 +61,9 @@ class DatabaseSeeder extends Seeder
                 ]
             );
         }
+        */
 
-        $this->command->info('Seeded: 2 roluri, 1 admin, 19 categorii');
+        $this->command->info('Seeded: 2 roluri, 1 admin');
         $this->command->info('Admin login: admin@piscineromania.ro / admin123!');
     }
 }
